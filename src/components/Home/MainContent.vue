@@ -1,3 +1,6 @@
+<!-- 
+  The "slot" component accepts content provided by HomeView
+-->
 <template>
   <main>
     <slot></slot>
@@ -9,10 +12,11 @@
 
 <style scoped>
 main {
-    height: calc(100vh - 70px);
+    height: calc(100vh - 70px); /* the height of MainContent should be: screen height - header height */
     width: 100%;
     padding: 0 150px;
 }
+/* styles applied when the screen is small */
 @media screen and (max-width: 768px) {
     main {
         padding: 0;
