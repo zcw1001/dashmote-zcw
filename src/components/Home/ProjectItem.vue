@@ -14,13 +14,14 @@
     ></div>
     <div id="category">
       <span 
+        class="center-box"
         :style="{ color: categoryColors[project.category][0], backgroundColor: categoryColors[project.category][1] }"
       >{{ project.category }}</span>
     </div>
     <div id="name">{{ project.name }}</div>
     <div id="n-users">{{ project.users }} users</div>
     <div id="n-dashboards">
-      <span>{{ project.dashboards }} dashboards</span>
+      <span class="center-box">{{ project.dashboards }} dashboards</span>
     </div>
     <div 
       @click="() => { onDelete(project.name) }"
@@ -30,12 +31,13 @@
 </template>
 
 <script setup lang="ts">
+import { inject } from 'vue'
 import type { Project } from '@/models/types'
 
 defineProps<{
   project: Project
-  onDelete: Function
 }>();
+const onDelete = inject('onDelete') as Function
 
 // the colors for each category
 // the second color is lighter than the first color
@@ -48,9 +50,10 @@ const categoryColors = {
 
 <style scoped>
 #project-item {
+  --item-height: 70px;
   display: flex; /* this container div is a flexbox */
   width: 100%;
-  height: 70px;
+  height: var(--item-height);
   margin-bottom: 10px;
   border-radius: 6px;
 
@@ -58,68 +61,62 @@ const categoryColors = {
   box-shadow: 1px 2px 5px 2px #E5E7EB;
 }
 #vertical-bar {
-  width: 10px;
-  height: 100%;
-  border-radius: 6px 0 0 6px;
-  float: left; /* position the vertical bar at the leftmost of the container */
+    width: 10px;
+    height: 100%;
+    border-radius: 6px 0 0 6px;
+    float: left; /* position the vertical bar at the leftmost of the container */
+}
+#category, #name, #n-users, #n-dashboards, #delete {
+    height: 100%;
 }
 #name, #n-users, #delete {
-  height: 70px;
-  padding: 0 15px;
+    padding: 0 15px;
 
-  line-height: 70px; /* vertically center the text */
+    line-height: var(--item-height); /* vertically center the text */
 }
 #name {
-  flex-grow: 8; /* defines the relative width of the "name" div */
+    flex-grow: 8; /* defines the relative width of the "name" div */
 
-  color: #223273;
+    color: var(--blue);
 }
 #n-users {
-  flex-grow: 4; /* defines the relative width of the "n-users" div */
+    flex-grow: 4; /* defines the relative width of the "n-users" div */
 }
 #category {
-  flex-grow: 2; /* defines the relative width of the "category" div */
-  height: 70px;
-  padding: 0 15px;
+    flex-grow: 2; /* defines the relative width of the "category" div */
+    padding: 0 15px;
 }
 #category span {
-  position: relative;
-  top: 50%;
-  transform: translate(0, -50%);
-  display: inline-block;
-  height: 30px;
-  width: 30px;
-  border-radius: 50%;
+    position: relative;
+    display: inline-block;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%; /* make it round */
 
-  background-color: #D1FAE5;
-  color: #34D399;
-  line-height: 32px;
-  text-align: center;
+    line-height: 32px; /* center the text vertically */
+    text-align: center;
 }
 #n-dashboards {
-  flex-grow: 2; /* defines the relative width of the "n-dashboards" div */
-  height: 70px;
-  padding-left: 0 15px;
+    flex-grow: 2; /* defines the relative width of the "n-dashboards" div */
+    padding-left: 0 15px;
 }
 #n-dashboards span {
-  position: relative;
-  top: 50%;
-  transform: translate(0, -50%);
-  display: inline-block;
-  height: 25px;
-  padding: 0 10px;
-  border: 2px solid #6EE7B7;
-  border-radius: 5px;
+    position: relative;
+    display: inline-block;
+    height: 25px;
+    padding: 0 10px;
+    border: 2px solid var(--green);
+    border-radius: 5px;
 
-  background-color: #D1FAE5;
-  color: #34D399;
-  line-height: 23px;
+    background-color: var(--light-green);
+    color: var(--green);
+    line-height: 23px;
 }
 #delete {
-  flex-grow: 1; /* defines the relative width of the "delete" div */
+    flex-grow: 1; /* defines the relative width of the "delete" div */
 
-  color: #FB7185;
-  cursor: pointer;
+    color: var(--red);
+    cursor: pointer;
 }
 /* styles applied when the screen is small */
 @media screen and (max-width: 768px) {

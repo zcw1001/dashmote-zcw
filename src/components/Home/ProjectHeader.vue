@@ -10,7 +10,7 @@
       <div>Here you can find your projects and dashboards.</div>
     </div>
     <div id="search-container">
-      <SearchBox :onSearch="onSearch" />
+      <SearchBox />
     </div>
     <div id="title">My Projects:</div>
   </header>
@@ -18,16 +18,12 @@
 
 <script setup lang="ts">
 import SearchBox from './SearchBox.vue'
-
-defineProps<{
-    onSearch: Function
-}>()
 </script>
 
 <style scoped>
 header {
     position: relative;
-    height: 180px;
+    height: var(--project-header-height);
 }
 #search-container {
     position: absolute;
@@ -36,12 +32,12 @@ header {
     padding-right: 25px;
 }
 #welcome-message, #title {
-  display: none; /* do not display the welcome message and title when screen is large */
+    display: none; /* do not display the welcome message and title when screen is large */
 }
 /* styles applied when the screen is small */
 @media screen and (max-width: 768px) {
     header {
-        height: 220px;
+        height: var(--project-header-height-sm);
     }
     #search-container {
         bottom: 70px;
@@ -49,9 +45,9 @@ header {
     }
     #welcome-message {
         display: block;
-        padding-top: 15px;
+        margin-top: 15px;
 
-        color: #223273;
+        color: var(--blue);
     }
     #welcome-message div:nth-child(1) {
         font-size: 28px;
@@ -65,7 +61,7 @@ header {
         bottom: 10px;
         display: block;
         
-        color: #223273;
+        color: var(--blue);
         font-weight: bold;
     }
 }

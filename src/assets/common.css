@@ -1,0 +1,22 @@
+:root {
+    /* colors */
+    --blue: #223273;
+    --green: #34D399;
+    --light-green: #D1FAE5;
+    --red: #FB7185;
+    --dark-red: #EF4444;
+    --gray: #4B5563;
+
+    /* sizes */
+    --padding-lg: 150px; /* The padding value to be used when screen is large */
+    --padding-sm: 30px; /* The padding value to be used when screen is large */
+    --home-header-height: 70px; /* The height of the HomeHeader */
+    --project-header-height: 180px; /* The height of the ProjectHeader */
+    --project-header-height-sm: 220px; /* The height of the ProjectHeader */
+}
+
+.center-box { 
+    /* the class that lets a block to center both vertically and horizontally relative to the parent container */
+    top: 50%;
+    transform: translateY(-50%);
+}

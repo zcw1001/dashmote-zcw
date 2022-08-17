@@ -7,7 +7,7 @@
 </template>
 
 <script setup lang="ts">
-import { reactive } from 'vue'
+import { reactive, provide } from 'vue'
 import type { Project } from '@/models/types'
 import HomeHeader from '@/components/Home/HomeHeader.vue'
 import ProjectList from '@/components/Home/ProjectList.vue'
@@ -39,12 +39,9 @@ function onSearch(query: string): void {
   }
   // If query is not empty, then search the projects array and 
   // add the projects whose name includes query into the matchingProjects array
-  matchingProjects.splice(0, matchingProjects.length) // Delete all elements in matchingProjects array
-  for (let project of projects) {
-    if (project.name.includes(query)) {
-      matchingProjects.push(project)
-    }
-  }
+  matchingProjects.splice(0, matchingProjects.length, ...projects.filter(project => {
+    return project.name.includes(query)
+  }))
 }
 /*
  * The function to be called when a user clicks the button to delete a project.
@@ -57,18 +54,15 @@ function onDelete(projectName: string): void {
   }
   // If the user clicks OK, then the project with the given project name will be deleted.
   // 1. Find the matching project in projects array and delete it
-  for (let i = 0; i < projects.length; i++) {
-    if (projects[i].name === projectName) {
-      projects.splice(i, 1)
-      break
-    }
-  }
+  projects.splice(projects.findIndex(project => {
+    return project.name === projectName
+  }), 1)
   // 2. Find the matching project in matchingProjects array and delete it
-  for (let i = 0; i < matchingProjects.length; i++) {
-    if (matchingProjects[i].name === projectName) {
-      matchingProjects.splice(i, 1)
-      break
-    }
-  }
+  matchingProjects.splice(matchingProjects.findIndex(project => {
+    return project.name === projectName
+  }), 1)
 }
+// Provide onSearch and onDelete functions to subcomponents
+provide('onSearch', onSearch)
+provide('onDelete', onDelete)
 </script>

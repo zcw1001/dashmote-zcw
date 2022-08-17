@@ -1,6 +1,6 @@
 <template>
   <bell-outlined 
-    class="notification-icon"
+    class="notification-icon center-box"
     :style="{ 'fontSize': '20px' }" 
   />
   
@@ -13,8 +13,6 @@ import { BellOutlined } from '@ant-design/icons-vue'
 <style scoped>
 .notification-icon {
     position: relative;
-    top: 50%;
-    transform: translate(0, -50%);
 
     cursor: pointer;
 }
@@ -28,6 +26,6 @@ import { BellOutlined } from '@ant-design/icons-vue'
     height: 8px;
     border-radius: 50%; /* make it round */
 
-    background-color: #EF4444;
+    background-color: var(--dark-red);
 }
 </style>

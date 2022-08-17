@@ -12,15 +12,15 @@
 
 <style scoped>
 main {
-    height: calc(100vh - 70px); /* the height of MainContent should be: screen height - header height */
+    height: calc(100vh - var(--home-header-height)); /* the height of MainContent should be: screen height - header height */
     width: 100%;
-    padding: 0 150px;
+    padding: 0 var(--padding-lg);
 }
 /* styles applied when the screen is small */
 @media screen and (max-width: 768px) {
     main {
-        padding: 0;
-        padding: 0 30px;
+        height: calc(100vh - var(--home-header-height-sm)); /* the height of MainContent should be: screen height - header height */
+        padding: 0 var(--padding-sm);
     }
 }
 </style>
