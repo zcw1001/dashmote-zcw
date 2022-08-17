@@ -7,7 +7,7 @@
 </template>
 
 <script setup lang="ts">
-import { reactive } from 'vue'
+import { reactive, provide } from 'vue'
 import type { Project } from '@/models/types'
 import HomeHeader from '@/components/Home/HomeHeader.vue'
 import ProjectList from '@/components/Home/ProjectList.vue'
@@ -62,4 +62,7 @@ function onDelete(projectName: string): void {
     return project.name === projectName
   }), 1)
 }
+// Provide onSearch and onDelete functions to subcomponents
+provide('onSearch', onSearch)
+provide('onDelete', onDelete)
 </script>

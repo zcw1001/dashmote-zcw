@@ -30,12 +30,13 @@
 </template>
 
 <script setup lang="ts">
+import { inject } from 'vue'
 import type { Project } from '@/models/types'
 
 defineProps<{
   project: Project
-  onDelete: Function
 }>();
+const onDelete = inject('onDelete') as Function
 
 // the colors for each category
 // the second color is lighter than the first color

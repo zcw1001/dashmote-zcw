@@ -13,11 +13,10 @@
 </template>
 
 <script setup lang="ts">
+import { inject } from 'vue'
 import { SearchOutlined } from '@ant-design/icons-vue'
 
-defineProps<{
-    onSearch: Function
-}>()
+const onSearch = inject('onSearch') as Function
 </script>
 
 <style scoped>

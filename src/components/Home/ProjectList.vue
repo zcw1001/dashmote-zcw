@@ -3,7 +3,6 @@
     <ProjectItem
       v-for="project in projects"
       :project="project"
-      :onDelete="onDelete"
     />
   </div>
 </template>
@@ -14,7 +13,6 @@ import type { Project } from '@/models/types'
 
 defineProps<{
   projects: Project[]
-  onDelete: Function
 }>()
 </script>
 

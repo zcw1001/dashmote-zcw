@@ -10,7 +10,7 @@
       <div>Here you can find your projects and dashboards.</div>
     </div>
     <div id="search-container">
-      <SearchBox :onSearch="onSearch" />
+      <SearchBox />
     </div>
     <div id="title">My Projects:</div>
   </header>
@@ -18,10 +18,6 @@
 
 <script setup lang="ts">
 import SearchBox from './SearchBox.vue'
-
-defineProps<{
-    onSearch: Function
-}>()
 </script>
 
 <style scoped>
