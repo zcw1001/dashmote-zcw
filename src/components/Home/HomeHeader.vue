@@ -6,13 +6,13 @@
 -->
 <template>
   <header> 
-    <div id="menu-icon">
+    <div id="menu-icon" class="center-box">
       <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
         <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
       </svg>
     </div>
     <div id="avatar">
-      <img src="/avatar.png" />
+      <img class="center-box" src="/avatar.png" />
     </div>
     <div id="username">Sarah Green</div>
     <div id="notification">
@@ -28,9 +28,9 @@ import NotificationIcon from './NotificationIcon.vue'
 <style scoped>
 header {
     position: relative;
-    height: 70px;
+    height: var(--home-header-height);
     width: 100%;
-    padding: 0 150px;
+    padding: 0 var(--padding-lg);
     border-bottom: 1px solid #D1D5DB;
 }
 #menu-icon {
@@ -38,35 +38,31 @@ header {
 }
 #notification, #username, #avatar {
     height: 100%;
-    float: right; /* place these items in the right side of the header  */
+    float: right; /* place these items in the rightmost of the header  */
 
-    color: #223273;
+    color: var(--blue);
 }
 #username {
-    padding-left: 30px;
+    margin-left: 30px;
 
-    line-height: 73px;
+    line-height: calc(var(--home-header-height) + 3px); /* position the username slightly below the vertical center */
 }
 #avatar {
-    padding-left: 20px;
+    margin-left: 20px;
 }
 #avatar img {
     position: relative;
-    top: 50%;
-    transform: translate(0, -50%);
     height: 30px;
     width: 30px;
 }
 /* styles applied when the screen is small */
 @media screen and (max-width: 768px) {
     header {
-        padding: 0 30px;
+        padding: 0 var(--padding-sm);
         border-bottom: none;
     }
     #menu-icon {
         position: absolute;
-        top: 50%;
-        transform: translate(0, -50%);
         display: block;
         width: 30px;
         height: 30px;
