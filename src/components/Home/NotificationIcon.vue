@@ -18,15 +18,15 @@ import { BellOutlined } from '@ant-design/icons-vue'
 
     cursor: pointer;
 }
-.notification-icon:before {
+.notification-icon:before { /* This pseudo-elemnt is the red circle that appears above the bell icon */
     content: '';
     position: absolute;
-    top: 3px;
-    left: 11px;
+    top: 3px; /* position it relatie to the notification icon */
+    left: 11px; /* position it relatie to the notification icon */
     display: inline-block;
     width: 8px;
     height: 8px;
-    border-radius: 50%;
+    border-radius: 50%; /* make it round */
 
     background-color: #EF4444;
 }

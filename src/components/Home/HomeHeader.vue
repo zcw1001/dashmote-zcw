@@ -1,5 +1,11 @@
+<!-- 
+  The "#menu-icon" div is the menu icon that appears when the web app is displayed in a mobile app.
+  The "#avatar" div is the avatar of the user that appears on the right side the the header.
+  The "#username" div is the username of the user. It disappers when the web app is displayed in a mobile app.
+  The "#notification" div is the contaienr for the notification icon.
+-->
 <template>
-  <header>
+  <header> 
     <div id="menu-icon">
       <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
         <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
@@ -28,11 +34,11 @@ header {
     border-bottom: 1px solid #D1D5DB;
 }
 #menu-icon {
-    display: none;
+    display: none; /* do not display the menu icon when screen is large */
 }
 #notification, #username, #avatar {
     height: 100%;
-    float: right;
+    float: right; /* place these items in the right side of the header  */
 
     color: #223273;
 }
@@ -51,6 +57,7 @@ header {
     height: 30px;
     width: 30px;
 }
+/* styles applied when the screen is small */
 @media screen and (max-width: 768px) {
     header {
         padding: 0 30px;
@@ -65,7 +72,7 @@ header {
         height: 30px;
     }
     #username {
-      display: none;
+      display: none; /* do not display the username in the header when screen is small */
     }
 }
 </style>
