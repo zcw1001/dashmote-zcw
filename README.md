@@ -31,6 +31,7 @@ This web app only has one page: the home page. There is one main Vue component f
 | ----------- | ----------- |
 | /public/avatar.png | The avatar image that is used in this project       |
 | /src/assets/reset.css | A CSS stylesheet that resets the default values of many HTML elements |
+| /src/assets/reset.css | A CSS stylesheet that stores the common CSS styles used in Home components |
 | /src/App.vue | The root component of this Vue app where HomeView.vue is inclueded |
 | /src/main.ts | The Typescript file that initializes the root component |
 | /src/models/types.ts | Stores the custom Typescript types used in many components |
