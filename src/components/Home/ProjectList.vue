@@ -1,11 +1,3 @@
-<!-- 
-  The "#vertical-bar" div is the vertical bar that has different colors for different project categories.
-  The "#category" div shows the category of the project.
-  The "#name" div shows the name of the project.
-  The "#n-users" div shows how many users are there for the project.
-  The "#n-dashboards" div shows how many dashboards are there for the project.
-  The "#delete" div is a text button for deletion of the project.
--->
 <template>
   <div id="project-list">
     <ProjectItem
