@@ -1,3 +1,11 @@
+<!-- 
+  The "#vertical-bar" div is the vertical bar that has different colors for different project categories.
+  The "#category" div shows the category of the project.
+  The "#name" div shows the name of the project.
+  The "#n-users" div shows how many users are there for the project.
+  The "#n-dashboards" div shows how many dashboards are there for the project.
+  The "#delete" div is a text button for deletion of the project.
+-->
 <template>
   <div id="project-item">
     <div 
@@ -29,6 +37,8 @@ defineProps<{
   onDelete: Function
 }>();
 
+// the colors for each category
+// the second color is lighter than the first color
 const categoryColors = {
   'C': ['#34D399', '#D1FAE5'],
   'F': ['#A78BFA', '#EDE9FE'],
@@ -38,7 +48,7 @@ const categoryColors = {
 
 <style scoped>
 #project-item {
-  display: flex;
+  display: flex; /* this container div is a flexbox */
   width: 100%;
   height: 70px;
   margin-bottom: 10px;
@@ -51,27 +61,24 @@ const categoryColors = {
   width: 10px;
   height: 100%;
   border-radius: 6px 0 0 6px;
-  float: left;
+  float: left; /* position the vertical bar at the leftmost of the container */
 }
 #name, #n-users, #delete {
   height: 70px;
   padding: 0 15px;
 
-  line-height: 70px;
+  line-height: 70px; /* vertically center the text */
 }
 #name {
-  flex-grow: 8;
+  flex-grow: 8; /* defines the relative width of the "name" div */
 
   color: #223273;
 }
 #n-users {
-  flex-grow: 4;
-}
-#category, #delete {
-  flex-grow: 1;
+  flex-grow: 4; /* defines the relative width of the "n-users" div */
 }
 #category {
-  flex-grow: 2;
+  flex-grow: 2; /* defines the relative width of the "category" div */
   height: 70px;
   padding: 0 15px;
 }
@@ -90,7 +97,7 @@ const categoryColors = {
   text-align: center;
 }
 #n-dashboards {
-  flex-grow: 2;
+  flex-grow: 2; /* defines the relative width of the "n-dashboards" div */
   height: 70px;
   padding-left: 0 15px;
 }
@@ -109,18 +116,21 @@ const categoryColors = {
   line-height: 23px;
 }
 #delete {
+  flex-grow: 1; /* defines the relative width of the "delete" div */
+
   color: #FB7185;
   cursor: pointer;
 }
+/* styles applied when the screen is small */
 @media screen and (max-width: 768px) {
     #n-users, #n-dashboards, #delete  {
-        display: none;
+        display: none; /* do not display "n-users", "n-dashboards", and "delete" div when screen is small */
     }
     #category {
-      flex-grow: 1;
+        flex-grow: 1; /* defines the relative width of the "category" div when screen is small */
     }
     #name {
-      flex-grow: 8;
+        flex-grow: 8; /* defines the relative width of the "name" div when screen is small */
     }
 }
 </style>
