@@ -26,8 +26,8 @@ defineProps<{
 /* styles applied when the screen is small */
 @media screen and (max-width: 768px) {
     #project-list {
-        height: calc(100vh - var(--project-header-height-sm) - var(--home-header-height) - 80px);  /* the height of MainContent should be: screen height - HomeHeader height - small screen ProjectHeader height - 80px*/
-        padding: 0 10px 100px 0;
+        height: calc(100vh - var(--project-header-height-sm) - var(--home-header-height) - 30px);  /* the height of MainContent should be: screen height - HomeHeader height - small screen ProjectHeader height - 30px*/
+        padding: 0 10px 0 0;
         -ms-overflow-style: none;  /* hide scrollbar for IE */
         scrollbar-width: none;  /* hide scrollbar for Firefox */
         overflow: -moz-scrollbars-none; /* hide scrollbar for older Firefox */
