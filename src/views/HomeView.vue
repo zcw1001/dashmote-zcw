@@ -7,7 +7,11 @@
     <ProjectHeader />
     <ProjectList :projects="matchingProjects" />
   </MainContent>
-  <Modal v-model:visible="modalVisible" title="Project Deletion Confirmation" @ok="confirmDelete">
+  <Modal 
+    id="deletion-confirmation"
+    v-model:visible="modalVisible" 
+    title="Project Deletion Confirmation" 
+    @ok="confirmDelete">
     <p>If you click <strong>OK</strong>, this project will be <strong>deleted</strong>.</p>
   </Modal>
 </template>
