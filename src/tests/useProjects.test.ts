@@ -1,7 +1,7 @@
 import { assert, describe, it } from 'vitest'
 import useProjects from '@/use/projects'
 
-describe.concurrent('filterProjects()', async () => {
+describe('filterProjects()', async () => {
   const { projects, matchingProjects, filterProjects } = useProjects()
 
   it('should restore matchingProjects correctly when query is emoty string', () => {
@@ -49,7 +49,7 @@ describe('deleteProject()', async () => {
   })
 })
 
-describe('filterProjects() & deleteProject()', () => {
+describe('filterProjects() & deleteProject()', async () => {
   it('should delete the project from both projects and matchingProjects correctly after matchingProjects is filtered', () => {
     const { projects, matchingProjects, filterProjects, deleteProject } = useProjects()
     const expected_projects = [
